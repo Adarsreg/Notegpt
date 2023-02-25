@@ -1,2 +1,1 @@
-
- A basic notes app 
+Integration of Notes app and OPEN AI
