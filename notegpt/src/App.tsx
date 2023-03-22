@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./main.css";
+import 'vite/modulepreload-polyfill'
 
 interface Note {
   id: number;
