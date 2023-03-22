@@ -1,4 +1,4 @@
-//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
+
 
 import { Configuration, OpenAIApi } from "openai";
 const configuration = new Configuration({
@@ -16,4 +16,4 @@ async function CallApi() {
     });
     console.log(response.data.choices[0].text)
 }
-CallApi()
+Callapi()
