@@ -9,5 +9,17 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- if development -->
+  <script type="module" src="http://127.0.0.1:5173/@vite/client"></script>
+  <script type="module" src="http://127.0.0.1:5173/main.js"></script>
+  <script type="module">
+  import RefreshRuntime from 'http://127.0.0.1:5173/@react-refresh'
+  RefreshRuntime.injectIntoGlobalHook(window)
+  window.$RefreshReg$ = () => {}
+  window.$RefreshSig$ = () => (type) => type
+  window.__vite_plugin_react_preamble_installed__ = true
+  </script>
+
+
   </body>
 </html>

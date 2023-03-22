@@ -7,13 +7,13 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-async function Callapi() {
+async function CallApi() {
     const response = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: "what is your name? how were you invented?",
+        prompt: "hello what can u do",
         max_tokens: 7,
         temperature: 0,
     });
     console.log(response.data.choices[0].text)
 }
-Callapi()
+CallApi()
