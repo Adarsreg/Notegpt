@@ -5,7 +5,7 @@ module.exports = {
     async getAllNotes(req, res) {
         try {
             const notes = await Note.find({});
-            res.json(notes);
+            res.send(notes);
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Server error: could not retrieve notes' });
@@ -16,12 +16,17 @@ module.exports = {
 
     // Create a new note in the database
     async createNote(req, res) {
-        const { title, description } = req.body;
-        const newNote = new Note({ title, description });
+        const { title, content } = req.body;
+        const newNote = new Note({ title, content });
 
         try {
-            const savedNote = await newNote.save();
-            res.json(savedNote);
+            Note.create({ title, content })
+                .then((data) => {
+                    console.log("Added succesfully")
+                    console.log(data);
+                    res.send(data);
+                })
+
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Server error: could not create note' });

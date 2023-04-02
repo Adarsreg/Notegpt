@@ -24,7 +24,7 @@ function App() {
   const handleAddNote = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await fetch('/api/notes', {
+      const response = await fetch('/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
