@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./main.css";
 import 'vite/modulepreload-polyfill'
 
@@ -10,23 +10,38 @@ interface Note {
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([]);
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const handleAddNote = (event: React.FormEvent) => {
+  useEffect(() => {
+    fetch('/api/notes')
+      .then(res => res.json())
+      .then(data => setNotes(data))
+      .catch(error => console.error(error));
+  }, []);
+
+  const handleAddNote = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (title.trim() === "" || content.trim() === "") {
-      return;
+    try {
+      const response = await fetch('/api/notes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ title, content })
+      });
+      const newNote = await response.json();
+      console.log(newNote);
+      setNotes([...notes, newNote]);
+      setTitle('');
+      setContent('');
+
+    } catch (error) {
+      console.error(error);
     }
-    const newNote: Note = {
-      id: Date.now(),
-      title: title,
-      content: content
-    };
-    setNotes([...notes, newNote]);
-    setTitle("");
-    setContent("");
   };
+
 
   const handleDeleteNote = (noteId: number) => {
     const updatedNotes = notes.filter((note) => note.id !== noteId);
