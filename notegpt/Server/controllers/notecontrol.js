@@ -16,21 +16,22 @@ module.exports = {
 
     // Create a new note in the database
     async createNote(req, res) {
-        const { title, content } = req.body;
-        const newNote = new Note({ title, content });
-
         try {
+            const { title, content } = req.body;
+            const newNote = new Note({ title, content });
+
+
             Note.create({ title, content })
                 .then((data) => {
                     console.log("Added succesfully")
                     console.log(data);
                     res.send(data);
                 })
-
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Server error: could not create note' });
         }
+
     },
 
     // Delete a note from the database by ID
