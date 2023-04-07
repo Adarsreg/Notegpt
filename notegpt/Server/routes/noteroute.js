@@ -14,6 +14,6 @@ router.get('/', (req, res) => {
 router.post('/save', noteController.createNote);
 
 // DELETE a note by ID
-router.delete('/delete', noteController.deleteNoteById);
+router.delete('/delete/:id', noteController.deleteNoteById);
 
 module.exports = router;

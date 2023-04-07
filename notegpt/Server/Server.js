@@ -6,8 +6,8 @@ const routes = require('./routes/noteroute')
 require('dotenv').config();
 
 const app = express();
-const port = 5000;
-const dburl = process.env.MONGO_URL;
+const port = process.env.port || 5000;
+const dburl = process.env.MONGODB_URL;
 app.use(express.json())
 app.use(cors())
 mongoose.connect(process.env.MONGODB_URL)

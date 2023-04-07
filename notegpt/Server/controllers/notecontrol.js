@@ -37,8 +37,12 @@ module.exports = {
     // Delete a note from the database by ID
     async deleteNoteById(req, res) {
         try {
-            const deletedNote = await Note.findByIdAndDelete(req.params.id);
-            res.json(deletedNote);
+            const _id = req.params.id;
+            const result = await Note.findByIdAndDelete(_id);
+            if (!result) {
+                return res.status(404).send({ message: 'Note not found' });
+            }
+            res.send({ message: 'Note deleted successfully' });
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Server error: could not delete note' });
