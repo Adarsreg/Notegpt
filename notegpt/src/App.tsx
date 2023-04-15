@@ -3,50 +3,79 @@ import "./main.css";
 import 'vite/modulepreload-polyfill'
 
 interface Note {
-  id: number;
+  id: string;
   title: string;
   content: string;
 }
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([]);
-
+  const [id, setids] = useState<string[]>([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const newNote: Note = {
+    title: title,
+    content: content,
+    id: "",
+  };
 
   useEffect(() => {
-    fetch('/api/notes')
-      .then(res => res.json())
-      .then(data => setNotes(data))
-      .catch(error => console.error(error));
+    async function fetchNotes() {
+      try {
+        const response = await fetch('http://localhost:5000/notes');
+        const data = await response.json();
+        setNotes(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchNotes();
   }, []);
+
+
 
   const handleAddNote = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    try {
-      const response = await fetch('/save', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ title, content })
-      });
-      const newNote = await response.json();
-      console.log(newNote);
-      setNotes([...notes, newNote]);
-      setTitle('');
-      setContent('');
 
-    } catch (error) {
-      console.error(error);
-    }
+
+
+
+    const res = await fetch("http://localhost:5000/save", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newNote),
+    })
+      .then(res => res.json())
+      .then(data => setNotes(data))
+
+
+      .catch(error => console.log(error));
+
+
+    setNotes(notes.length > 0 ? [...notes, newNote] : [newNote]);
+    setTitle('');
+    setContent('');
+  };
+
+  const handleDeleteNote = async (id: string) => {
+    const res = await fetch(`http://localhost:5000/delete/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(res => res.json())
+      .then(data => setNotes(data))
+      .catch(error => console.log(error));
+
+    setNotes(notes.filter(note => note.id !== id));
   };
 
 
-  const handleDeleteNote = (noteId: number) => {
-    const updatedNotes = notes.filter((note) => note.id !== noteId);
-    setNotes(updatedNotes);
-  };
+
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
@@ -88,7 +117,7 @@ function App() {
         <ul>
           {notes.map((note) => (
             <li
-              key={note.id}
+
               className="bg-white rounded-md shadow-md p-4 mb-4 border-l-4 border-green-500"
             >
               <h2 className="text-xl font-bold mb-2">{note.title}</h2>
