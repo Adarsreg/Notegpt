@@ -2,15 +2,16 @@ const Note = require('../models/notemodel');
 
 module.exports = {
     // Retrieve all notes from the database
-    async getAllNotes(req, res) {
+    async getNotes(req, res) {
         try {
-            const notes = await Note.find({});
-            res.send(notes);
+            const notes = await Note.find();
+            res.json(notes);
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Server error: could not retrieve notes' });
         }
     },
+
 
 
 
