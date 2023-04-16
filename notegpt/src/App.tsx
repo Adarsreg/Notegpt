@@ -10,13 +10,13 @@ interface Note {
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([]);
-  const [id, setids] = useState<string[]>([]);
+  const [id, setids] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const newNote: Note = {
     title: title,
     content: content,
-    id: "",
+    id: id,
   };
 
   useEffect(() => {
@@ -38,9 +38,6 @@ function App() {
   const handleAddNote = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-
-
-
     const res = await fetch("http://localhost:5000/save", {
       method: 'POST',
       headers: {
@@ -49,18 +46,24 @@ function App() {
       body: JSON.stringify(newNote),
     })
       .then(res => res.json())
-      .then(data => setNotes(data))
-
-
+      .then(data => {
+        const id = data._id;
+        setNotes([...notes, { ...newNote, id }]);
+      })
       .catch(error => console.log(error));
 
-
-    setNotes(notes.length > 0 ? [...notes, newNote] : [newNote]);
     setTitle('');
     setContent('');
   };
 
+
+
   const handleDeleteNote = async (id: string) => {
+    if (!id) {
+      console.log('Invalid note id');
+      return;
+    }
+
     const res = await fetch(`http://localhost:5000/delete/${id}`, {
       method: 'DELETE',
       headers: {
@@ -73,6 +76,7 @@ function App() {
 
     setNotes(notes.filter(note => note.id !== id));
   };
+
 
 
 
@@ -117,7 +121,7 @@ function App() {
         <ul>
           {notes.map((note) => (
             <li
-
+              key={note.id}
               className="bg-white rounded-md shadow-md p-4 mb-4 border-l-4 border-green-500"
             >
               <h2 className="text-xl font-bold mb-2">{note.title}</h2>

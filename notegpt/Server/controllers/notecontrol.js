@@ -21,19 +21,18 @@ module.exports = {
             const { title, content } = req.body;
             const newNote = new Note({ title, content });
 
-
             Note.create({ title, content })
                 .then((data) => {
                     console.log("Added succesfully")
                     console.log(data);
-                    res.send(data);
+                    res.send({ ...data.toObject(), id: data._id });
                 })
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Server error: could not create note' });
         }
-
     },
+
 
     // Delete a note from the database by ID
     async deleteNoteById(req, res) {
