@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./main.css";
-import 'vite/modulepreload-polyfill'
+
 
 interface Note {
   id: string;
