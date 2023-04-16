@@ -27,7 +27,7 @@ This will start the server on http://localhost:5000.
 
     cd Notegpt/frontend
     npm run dev
-This will start the frontend application on http://localhost:3000.
+This will start the frontend application on http://localhost:5000.
 
 Deployment
 The frontend application can be easily deployed to Vercel, a cloud platform for static sites and serverless functions. Simply create an account, connect your GitHub repository, and deploy.
