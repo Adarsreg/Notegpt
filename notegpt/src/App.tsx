@@ -82,9 +82,9 @@ function App() {
 
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="bg-teal-50 min-h-screen flex flex-col">
       <div className="flex-none container mx-auto py-8 px-4 md:px-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">Notes App</h1>
+        <h1 className="text-5xl font-custom text-gray-800 mb-4  flex items-center justify-center h-full">Notes App</h1>
         <form onSubmit={handleAddNote} className="mb-8">
           <div className="flex flex-col mb-4">
             <label htmlFor="title" className="mb-2 font-bold text-gray-800">
@@ -111,7 +111,7 @@ function App() {
           </div>
           <button
             type="submit"
-            className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md"
+            className="bg-rose-400 hover:bg-green-400 text-white py-2 px-4 rounded-md"
           >
             Add Note
           </button>
@@ -122,12 +122,12 @@ function App() {
           {notes.map((note) => (
             <li
               key={note.id}
-              className="bg-white rounded-md shadow-md p-4 mb-4 border-l-4 border-green-500"
+              className="bg-rose-300 rounded-md shadow-md p-5 mb-10 border-l-4 border-red-500"
             >
-              <h2 className="text-xl font-bold mb-2">{note.title}</h2>
+              <h2 className="text-xl font-serif mb-3">{note.title}</h2>
               <p className="mb-2">{note.content}</p>
               <button
-                className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md"
+                className="bg-red-500 hover:bg-green-400 text-white py-2 px-4 rounded-md"
                 onClick={() => handleDeleteNote(note.id)}
               >
                 Delete
