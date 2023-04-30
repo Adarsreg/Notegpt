@@ -134,7 +134,7 @@ function App() {
   return (
     <div className="bg-teal-50 min-h-screen flex flex-col">
       <div className="flex-none container mx-auto py-8 px-4 md:px-8">
-        <h1 className="text-5xl font-custom text-gray-800 mb-4  flex items-center justify-center h-full">Notes App</h1>
+        <h1 className="text-5xl font-custom text-gray-800 mb-4  flex items-center justify-center h-full">NotesGPT</h1>
         <form onSubmit={handleAddNote} className="mb-8">
           <div className="flex flex-col mb-4">
             <label htmlFor="title" className="mb-2 font-bold text-gray-800">
