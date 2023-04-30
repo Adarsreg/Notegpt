@@ -1,4 +1,9 @@
 const Note = require('../models/notemodel');
+const openai = require('openai');
+const api_key = process.env.OPENAI_API_KEY;
+openai.api_key = api_key;
+
+
 
 module.exports = {
     // Retrieve all notes from the database
@@ -11,8 +16,6 @@ module.exports = {
             res.status(500).json({ message: 'Server error: could not retrieve notes' });
         }
     },
-
-
 
 
     // Create a new note in the database
@@ -32,6 +35,9 @@ module.exports = {
             res.status(500).json({ message: 'Server error: could not create note' });
         }
     },
+
+
+
 
 
     // Delete a note from the database by ID
