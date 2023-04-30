@@ -1,6 +1,6 @@
 const express = require('express');
 const Note = require('../models/notemodel');
-
+const openai = require('openai');
 const router = express.Router();
 const noteController = require("../controllers/notecontrol")
 
