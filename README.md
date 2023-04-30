@@ -1,6 +1,6 @@
 Full Stack Notes APP
 
-Notegpt is a sophisticated note-taking application that leverages the cutting-edge power of OPENAI's text-davinci-003 model to automatically generate content for notes provided by the user. Built using MERN STACK, Notegpt provides a seamless and intuitive user experience, allowing users to effortlessly create and store notes, with the option to generate content using OPENAI's state-of-the-art language processing technology. The application is fully scalable and designed to handle a high volume of users, while maintaining fast response times and robust security.
+Notegpt is a simple note-taking application that leverages the cutting-edge power of OPENAI's text-davinci-003 model to automatically generate content for notes provided by the user. Built using MERN STACK, Notegpt provides a seamless and intuitive user experience, allowing users to effortlessly create and store notes, with the option to generate content using OPENAI's state-of-the-art language processing technology. The application is fully scalable and designed to handle a high volume of users, while maintaining fast response times and robust security.
 It is built with Vite, React, and Node.js. It allows users to create, read, and delete notes. 
 
 Requirements
