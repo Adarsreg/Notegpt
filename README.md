@@ -39,10 +39,10 @@ To deploy the backend, you can use a platform like Heroku. You can follow these 
 Make sure to set the environment variables OPENAI_API_KEY and MONGO_URI to their respective values on your production environment.
 
 NOTE:
-You need to have a mongodb_url from mongodb's site: https://www.mongodb.com/
+You need to have a mongodb_uri from mongodb's site: https://www.mongodb.com/
 Also you need open ai's api key from their website: https://platform.openai.com/account/api-keys
 
-Create an account and paste your mongo_db_url in .env file
+Create an account and paste your mongo_db_uri in .env file
 Paste your open ai api key in chatgpt.tsx file
 
 Credits
