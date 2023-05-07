@@ -32,14 +32,10 @@ This will start the server on http://localhost:5000.
 This will start the frontend application on http://localhost:5000.
 
 Deployment
-The frontend application can be easily deployed to Vercel, a cloud platform for static sites and serverless functions. Simply create an account, connect your GitHub repository, and deploy.
-
-To deploy the backend, you can use a platform like Heroku. You can follow these instructions to deploy a Node.js application to Heroku.
-
-Make sure to set the environment variables OPENAI_API_KEY and MONGO_URI to their respective values on your production environment.
+Website is not yet deployed. However you can clone the repo and run it on your local system.
 
 NOTE:
-You need to have a mongodb_url from mongodb's site: https://www.mongodb.com/
+You need to have a mongodb_uri from mongodb's site: https://www.mongodb.com/
 Also you need open ai's api key from their website: https://platform.openai.com/account/api-keys
 
 Create an account and paste your mongo_db_url in .env file
