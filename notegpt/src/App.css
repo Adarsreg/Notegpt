@@ -1,0 +1,18 @@
+.animate-pulse {
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
