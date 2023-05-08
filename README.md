@@ -20,8 +20,9 @@ Installation
 Usage
 1.Start the backend server
 
-    cd Notegpt/backend
-    nodemon start
+    cd Notegpt/backend/server
+    nodemon server
+    
 This will start the server on http://localhost:5000.
 
 2.Start the frontend application
@@ -31,11 +32,14 @@ This will start the server on http://localhost:5000.
 This will start the frontend application on http://localhost:5000.
 
 Deployment
-The frontend application can be easily deployed to Vercel, a cloud platform for static sites and serverless functions. Simply create an account, connect your GitHub repository, and deploy.
+Website is not yet deployed. However you can clone the repo and run it on your local system.
 
-To deploy the backend, you can use a platform like Heroku. You can follow these instructions to deploy a Node.js application to Heroku.
+NOTE:
+You need to have a mongodb_uri from mongodb's site: https://www.mongodb.com/
+Also you need open ai's api key from their website: https://platform.openai.com/account/api-keys
 
-Make sure to set the environment variables OPENAI_API_KEY and MONGO_URI to their respective values on your production environment.
+Create an account and paste your mongo_db_uri in .env file
+Paste your open ai api key in chatgpt.tsx file
 
 Credits
 Vite
@@ -45,3 +49,13 @@ Express
 MongoDB
 License
 This project is licensed under the MIT License.
+
+SCREENSHOT:
+
+![Screenshot (25)](https://user-images.githubusercontent.com/97781350/236697926-4a79c6cf-7b93-4345-a7ca-a727b8c9ed38.png)
+![Screenshot (26)](https://user-images.githubusercontent.com/97781350/236697913-d3e446cf-658f-4928-bbc8-d4514c951a63.png)
+
+
+
+
+
