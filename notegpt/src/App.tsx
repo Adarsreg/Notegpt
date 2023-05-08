@@ -138,7 +138,7 @@ function App() {
 
           <form onSubmit={handleAddNote} className="mb-8">
             <div className="flex flex-col mb-4">
-              <label htmlFor="title" className="mb-2 font-bold text-gray-800">
+              <label htmlFor="title" className="mb-2 font-bold text-gray-800 ">
                 Title
               </label>
               <input
@@ -167,14 +167,17 @@ function App() {
             <div className="flex space-x-4 ...">
               <button
                 type="submit"
-                className="bg-rose-400 focus:outline-none font-bold focus:ring-2 hover:ring-black-500 focus:border-transparent  hover:bg-black transition duration-30 placeholder-white  text-white py-2 px-4 rounded-md "
+                className="bg-rose-400 focus:outline-none font-bold focus:ring-2 hover:ring-black-500 focus:border-transparent
+                  hover:bg-black transition duration-30 placeholder-white  text-white py-2 px-4 rounded-md
+                  hover:scale-125 "
               >
                 Add Note
               </button>
               <button
                 type="button"
                 onClick={() => generateContent(title)}
-                className=" bg-rose-400 focus:outline-none font-bold focus:ring-2 hover:ring-black-500 focus:border-transparent  hover:bg-black transition duration-30 placeholder-white  text-white py-2 px-4 rounded-md "
+                className=" bg-rose-400 focus:outline-none font-bold focus:ring-2 hover:ring-black-500 focus:border-transparent
+                 hover:bg-black transition duration-30 placeholder-white  text-white py-2 px-4 rounded-md hover:scale-125"
               >
                 Generate
               </button>
@@ -192,7 +195,9 @@ function App() {
                 <h2 className="text-2xl font-bold mb-3 text-green-400">{note.title}</h2>
                 <p className="mb-10">{note.content}</p>
                 <button
-                  className="bg-purple-600  hover:bg-red-700 focus:outline-none font-semibold focus:ring-2 focus:bg-rose-400 text-white py-2 px-4 rounded-md transition duration-300 text-lg"
+                  className="bg-purple-600  hover:bg-red-700 focus:outline-none font-semibold focus:ring-2 focus:bg-rose-400
+                   text-white py-2 px-4 rounded-md transition duration-300 text-lg
+                   hover:scale-125"
                   onClick={() => handleDeleteNote(note.id)}
                 >
                   Delete
